@@ -8,6 +8,8 @@ const wikisession = new Session('en.wiktionary.org', {
   formatversion: 2,
   errorformat: 'plaintext',
   origin: '*'
+}, {
+  userAgent: 'WiktionaryIntersection/0.1 (+https://cat-girl.gay)'
 })
 
 let current_label = ref("");
