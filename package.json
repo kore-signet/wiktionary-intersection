@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@kore-signet/rs-patricia-tree": "^0.1.0",
+    "@oneidentity/zstd-js": "^1.0.3",
     "m3api": "^0.8.1",
     "primevue": "^3.51.0",
     "vue": "^3.4.21",

@@ -19,7 +19,7 @@
 // change over to https://vue-multiselect.js.org/#sub-asynchronous-select
 import Multiselect from 'vue-multiselect'
 import { Trie } from '@kore-signet/rs-patricia-tree'
-
+import { ZstdInit, ZstdStream } from '@oneidentity/zstd-js/decompress'
 export default {
     components: { Multiselect },
     data() {
@@ -37,15 +37,18 @@ export default {
       },
       find_words(query) {
         this.is_loading = true;
-        this.options = this.options_tree.search(query, 300);
+        this.options = this.options_tree.search(query, 100);
         this.is_loading = false;
       }
     },
     async mounted() {
       this.is_loading = true;
-      let res = await fetch("./words.trie");
-      let data = await res.arrayBuffer();
-      this.options_tree = Trie.from_bytes(new Uint8Array(data));
+      let res = await fetch("./words.trie.zst");
+      await ZstdInit();
+
+      let compressed_data = await res.arrayBuffer();
+      
+      this.options_tree = Trie.from_bytes(ZstdStream.decompress(new Uint8Array(compressed_data)));
       this.is_loading = false;
       // await import("../assets/minified.json").then(({default: json}) => {
       //   this.options = json;
