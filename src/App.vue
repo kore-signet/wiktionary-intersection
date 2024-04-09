@@ -63,7 +63,7 @@ async function nya(categories) {
 </script>
 
 <template>
-  <p style="color: white">Add categories to intersect below. You can type them in if they don't appear automagically by searching! Once you're done, press submit and wait for the donwload link to appear.</p>
+  <p>Add categories to intersect below. You can type them in if they don't appear automagically by searching! Once you're done, press submit and wait for the donwload link to appear.</p>
   <br />
   <Categories @submitted="nya" />
   <br />

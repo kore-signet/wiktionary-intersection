@@ -61,7 +61,7 @@ export default {
 div {
     width: 100%;
     display: inline-flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     gap: 1em;
 }
 </style>
