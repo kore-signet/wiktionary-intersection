@@ -7,7 +7,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: '/wiktionary-intersection/',
+  base: '/wiktionary-intersection/',
   plugins: [
     vue(),
     wasm(),
