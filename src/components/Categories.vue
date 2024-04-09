@@ -36,16 +36,14 @@ export default {
         this.value.push(newTag);
       },
       find_words(query) {
-        console.log(query);
         this.is_loading = true;
         this.options = this.options_tree.search(query, 300);
-        console.log(this.options_tree.search(query, 300));
         this.is_loading = false;
       }
     },
     async mounted() {
       this.is_loading = true;
-      let res = await fetch("./words.trie.gz");
+      let res = await fetch("./words.trie");
       let data = await res.arrayBuffer();
       this.options_tree = Trie.from_bytes(new Uint8Array(data));
       this.is_loading = false;
