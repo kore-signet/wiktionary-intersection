@@ -58,7 +58,7 @@ async function nya(categories) {
   element.setAttribute('href', 'data:text/csv;charset=utf8,' + encodeURIComponent(words_as_csv))
   element.setAttribute('download', 'intersection.csv')
   
-  current_label.value = "Download!"
+  current_label.value = `Download! {Intersection contains ${words.length} words}`
 }
 </script>
 
